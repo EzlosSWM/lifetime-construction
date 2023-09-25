@@ -1,0 +1,99 @@
+---
+import { Icon } from "astro-icon";
+import Navigation from "@components/Navigation.astro";
+import NavLinks from "@navigation/NavLinks.astro";
+
+import navData from "@data/navData";
+
+const contactInfo = [
+  { icon: "ic:baseline-phone", info: "+(501) 123-4567" },
+  { icon: "ic:outline-email", info: "lifetime-construction@gmail.com" },
+];
+---
+
+<header class="bg-yellow-300 text-gray-700 sticky top-0 z-10">
+  <!-- upper banner -->
+  <section class="max-w-5xl mx-auto p-4 flex flex-col">
+    <ul class="flex justify-end gap-4 font-light text-sm">
+      {
+        contactInfo.map((contact) => (
+          <li class="flex items-center gap-2">
+            <Icon class="w-6 h-6" name={contact.icon} />
+            <p>{contact.info}</p>
+          </li>
+        ))
+      }
+    </ul>
+
+    <section class="">
+      <nav>
+        <div class="max-w-5xl mx-auto">
+          <div class="flex items-center justify-between">
+            <!-- logo -->
+            <div>
+              <a href="/" class="flex flex-col items-center py-3 px-2">
+                <img src="/logo.png" alt="Lifetime Logo" class="h-10 w-10" />
+                <span class="font-medium text-gray-800"
+                  >Lifetime Construction</span
+                >
+              </a>
+            </div>
+            <!-- primary nav -->
+            <div>
+              <Navigation />
+            </div>
+            <!-- mobile button -->
+            <div class="md:hidden">
+              <button
+                id="mobile-menu-button"
+                type="button"
+                class="md:hidden"
+                aria-label="Toggle menu"
+              >
+                <svg
+                  class="h-6 w-6 fill-current"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M4 6h16M4 12h16M4 18h16"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- mobile menu -->
+
+        <div id="mobile-menu" class="hidden">
+          <div class="text-center text-sm">
+            {
+              navData.map((item) => (
+                <NavLinks navItem={item.navItem} navName={item.navName} />
+              ))
+            }
+
+            <div class="py-3 px-2">
+              <button
+                class="py-2 px-3 bg-gray-900 text-yellow-300 rounded shadow-lg hover:bg-gray-800 hover:text-yellow-200"
+                >Get a quote</button
+              >
+            </div>
+          </div>
+        </div>
+      </nav>
+    </section>
+  </section>
+
+  <script>
+    const btn = document.getElementById("mobile-menu-button");
+    const menu = document.getElementById("mobile-menu");
+
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+  </script>
+</header>

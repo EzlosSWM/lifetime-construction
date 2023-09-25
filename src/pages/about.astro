@@ -1,0 +1,38 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import Button from "@components/Button.astro";
+
+// ex https://www.snydercg.com/who-we-are
+---
+<BaseLayout>
+    <!-- About us -->
+    <section>
+        <img src="/about-us-roofing.jpg" alt="About us roofing" class="h-40 w-screen object-cover bg-no-repeat" />
+        <div class="my-8 px-16">
+        <h2 class="text-2xl font-bold text-yellow-500">About Us</h2>
+        <p class="text-base font-thin">From our humble beginnings in 1921 as a structural engineering consultant, to our current worldwide full-service AEC capabilities, one thing has remained true - our dedication to service. <br />
+
+The following is a brief retrospective of our firm highlighting our founding and significant achievements. So, without further ado, here is the Epstein story, so far.</p>
+    </div>
+    </section>
+
+    <!-- experience section -->
+    <section class="px-16 my-8">
+        <div class="grid  grid-cols-2">
+            <div class="md:w-1/2 mx-auto">
+                <p>Oswin's experience section..Oswin's experience section..OOswin's experience section..Oswin's experience section..Oswin's experience section..swin's experience section..</p>
+                </div>
+            <div class="md:w-1/2 mx-auto grid place-items-center">
+                <p><span class="text-yellow-700 italic text-3xl">10+</span> Leading the industry.</p>
+                </div>
+        </div>
+    </section>
+
+        <img src="/teamwork.jpg" alt="Teamwork" class="h-42 w-full object-cover bg-no-repeat" />
+
+    <Button classes="bg-green-500 p-4">
+        CTA
+    </Button>
+</BaseLayout>
+
+

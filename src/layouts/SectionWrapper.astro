@@ -1,0 +1,16 @@
+---
+interface Props {
+  bgClr?: string;
+  textClr?: string;
+}
+
+const { bgClr = "bg-white", textClr = "text-gray-950" } = Astro.props;
+---
+
+<section class={bgClr}>
+  <div class="md:px-24 p-8">
+    <div class={textClr}>
+      <slot />
+    </div>
+  </div>
+</section>

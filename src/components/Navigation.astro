@@ -1,0 +1,20 @@
+---
+import NavLinks from "./navigation/NavLinks.astro";
+
+import navData from "@data/navData.js";
+---
+
+<div class="hidden md:flex items-center space-x-3">
+  {
+    navData.map((item) => (
+      <NavLinks navItem={item.navItem} navName={item.navName} />
+    ))
+  }
+
+  <div class="py-3 px-2">
+    <button
+      class="py-2 px-3 bg-gray-900 text-yellow-300 rounded shadow-lg hover:bg-gray-800 hover:text-yellow-200"
+      >Get a quote</button
+    >
+  </div>
+</div>

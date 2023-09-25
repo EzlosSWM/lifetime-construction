@@ -1,0 +1,26 @@
+---
+// component imports
+import NavLinks from "@navigation/NavLinks.astro";
+import navData from "@data/navData.js";
+
+const author = 'Carlos Gomez';
+---
+<footer class="flex items-center justify-center text-center text-white bg-gray-950">
+    <div class="p-8 max-w-4xl mx-auto">
+        <nav class="flex py-4">
+            {
+                navData.map((item) => (
+                <div class="text-sm font-medium rounded hover:bg-gray-800">
+                    <NavLinks navItem={item.navItem} navName={item.navName} />
+                </div>
+                ))
+            }
+        </nav>
+            <p>© <span id="year"></span> {author} All Rights Reserved.</p>
+    </div>
+</footer>
+
+<script>
+    document.getElementById("year").textContent = new Date()
+        .getFullYear().toString();
+</script>
