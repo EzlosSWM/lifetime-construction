@@ -1,7 +1,33 @@
 ---
-const { type = "button", classes} = Astro.props;
+const { type = "button", theme} = Astro.props;
 
 ---
-<button {type} class:list={[classes]}>
-    <slot />
+<button {type} class={theme}>
+        <slot />
 </button>
+
+<style>
+    .primary-button {
+        @apply px-1 py-3 sm:w-24 md:w-40 shadow rounded bg-gray-800 delay-75 text-yellow-500;
+
+        &:hover {
+            @apply bg-gray-900 shadow-gray-700 shadow;
+        }
+    }
+
+    .secondary-button {
+        @apply px-1 py-3 sm:w-24 md:w-40 shadow-white shadow-sm rounded bg-transparent border border-gray-50 delay-75 text-gray-50;
+
+        &:hover {
+            @apply shadow-black shadow-sm border-none bg-gray-50 text-gray-900;
+        }
+    }
+    
+    .cta {
+        @apply px-1 py-3 sm:w-24 md:w-40 shadow rounded bg-yellow-500 delay-75 text-gray-200;
+
+        &:hover {
+            @apply bg-yellow-600 text-gray-50;
+        }
+    }
+</style>

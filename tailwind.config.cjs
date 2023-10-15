@@ -8,7 +8,7 @@ module.exports = {
             },
 			backgroundImage: {
 				'hero': "url('../hero-img.jpg')",
-                'cta': "url('./images/concrete-bg.jpg')"
+                'cta': "url('../images/concrete-bg.jpg')"
 			}
         },
 	},

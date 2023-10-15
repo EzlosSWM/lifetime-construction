@@ -53,13 +53,9 @@ const images = [
           </h3>
         </div>
         <div class="my-4">
-          <button
-            class="py-2 px-4 underline border border-white backdrop-blur-lg rounded hover:bg-neutral-800"
-            >View Projects</button
+          <Button theme={"secondary-button"}>View Projects</Button
           >
-          <button
-            class="py-2 px-3 text-gray-700 bg-yellow-400 rounded shadow-lg hover:bg-yellow-500 hover:text-gray-950"
-            >Get a quote</button
+          <Button theme={"cta"}>Get a quote</button
           >
         </div>
       </section>
@@ -200,12 +196,12 @@ const images = [
 
   <!-- cta -->
   <section>
-    <div class="bg-[url('./images/concrete-bg.jpg')] bg-cover bg-no-repeat">
+    <div class="bg-cta bg-cover bg-no-repeat">
       <div class="p-32 grid place-items-center">
         <Button
-          classes="px-4 py-2 w-32 md:w-52 shadow-xl rounded bg-yellow-500 hover:bg-yellow-600 text-white"
+          theme="cta"
         >
-          Get a quote
+        Get a quote
         </Button>
       </div>
     </div>
