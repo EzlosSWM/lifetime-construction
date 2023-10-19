@@ -9,83 +9,85 @@ const contactInfo = [
   { icon: "ic:baseline-phone", info: "+(501) 123-4567" },
   { icon: "ic:outline-email", info: "lifetime-construction@gmail.com" },
 ];
+
+const logo = "../logo.png";
 ---
 
-<header class="bg-yellow-300 text-gray-700 sticky top-0 z-10">
+<header class="bg-yellow-300 text-gray-700 shadow-lg sticky top-0 z-10">
   <!-- upper banner -->
   <section class="max-w-5xl mx-auto p-4 flex flex-col">
-    <ul class="flex justify-end gap-4 font-light text-sm">
+    <ul
+      class="upper-section flex justify-end gap-4 font-light text-xs md:text-sm"
+    >
       {
         contactInfo.map((contact) => (
           <li class="flex items-center gap-2">
-            <Icon class="w-6 h-6" name={contact.icon} />
+            <Icon class="sm:w-4 w-6 sm:h-4 h-6" name={contact.icon} />
             <p>{contact.info}</p>
           </li>
         ))
       }
     </ul>
 
-    <section class="">
-      <nav>
-        <div class="max-w-5xl mx-auto">
-          <div class="flex items-center justify-between">
-            <!-- logo -->
-            <div>
-              <a href="/" class="flex flex-col items-center py-3 px-2">
-                <img src="/logo.png" alt="Lifetime Logo" class="h-10 w-10" />
-                <span class="font-medium text-gray-800"
-                  >Lifetime Construction</span
-                >
-              </a>
-            </div>
-            <!-- primary nav -->
-            <div>
-              <Navigation />
-            </div>
-            <!-- mobile button -->
-            <div class="md:hidden">
-              <button
-                id="mobile-menu-button"
-                type="button"
-                class="md:hidden"
-                aria-label="Toggle menu"
+    <nav>
+      <div class="max-w-5xl mx-auto">
+        <div class="flex items-center justify-between">
+          <!-- logo -->
+          <div>
+            <a href="/" class="flex items-center py-3 px-2">
+              <img src={logo} alt="Lifetime Logo" class="h-10 w-10" />
+              <span class="font-medium text-xl text-gray-800"
+                >Lifetime Construction</span
               >
-                <svg
-                  class="h-6 w-6 fill-current"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M4 6h16M4 12h16M4 18h16"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"></path>
-                </svg>
-              </button>
-            </div>
+            </a>
+          </div>
+          <!-- primary nav -->
+          <div>
+            <Navigation />
+          </div>
+          <!-- mobile button -->
+          <div class="md:hidden">
+            <button
+              id="mobile-menu-button"
+              type="button"
+              class="md:hidden"
+              aria-label="Toggle menu"
+            >
+              <svg
+                class="h-6 w-6 fill-current"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M4 6h16M4 12h16M4 18h16"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </button>
           </div>
         </div>
-        <!-- mobile menu -->
+      </div>
+      <!-- mobile menu -->
 
-        <div id="mobile-menu" class="hidden">
-          <div class="text-center text-sm">
-            {
-              navData.map((item) => (
-                <NavLinks navItem={item.navItem} navName={item.navName} />
-              ))
-            }
+      <div id="mobile-menu" class="hidden">
+        <div class="text-center text-sm">
+          {
+            navData.map((item) => (
+              <NavLinks navItem={item.navItem} navName={item.navName} />
+            ))
+          }
 
-            <div class="py-3 px-2">
-              <button
-                class="py-2 px-3 bg-gray-900 text-yellow-300 rounded shadow-lg hover:bg-gray-800 hover:text-yellow-200"
-                >Get a quote</button
-              >
-            </div>
+          <div class="py-3 px-2">
+            <button
+              class="py-2 px-3 bg-gray-900 text-yellow-300 rounded shadow-lg hover:bg-gray-800 hover:text-yellow-200"
+              >Get a quote</button
+            >
           </div>
         </div>
-      </nav>
-    </section>
+      </div>
+    </nav>
   </section>
 
   <script>
@@ -94,6 +96,16 @@ const contactInfo = [
 
     btn.addEventListener("click", () => {
       menu.classList.toggle("hidden");
+    });
+
+    // on scroll header
+    window.addEventListener("scroll", () => {
+      const upperSection = document.querySelector(".upper-section");
+      if (window.scrollY > 50) {
+        upperSection.classList.add("hidden");
+      } else {
+        upperSection.classList.remove("hidden");
+      }
     });
   </script>
 </header>

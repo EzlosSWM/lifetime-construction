@@ -1,40 +1,64 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import Button from "@components/Button.astro";
+
+const aboutImages = {
+  teamwork: "../images/teamwork.jpg",
+  roof: "../images//about-us-roofing.jpg",
+};
+
+const experiences = [
+  "Innovative Designs",
+  "Commercial Success",
+  "Residential Excellence",
+  "Restorations and Renovations",
+];
 
 // ex https://www.snydercg.com/who-we-are
 ---
+
 <BaseLayout>
-    <!-- About us -->
-    <section>
-        <img src="/about-us-roofing.jpg" alt="About us roofing" class="h-40 w-screen object-cover bg-no-repeat" />
-        <div class="my-8 px-16">
-        <h2 class="text-2xl font-bold text-yellow-500">About Us</h2>
-        <p class="text-base font-thin">From our humble beginnings in 1921 as a structural engineering consultant, to our current worldwide full-service AEC capabilities, one thing has remained true - our dedication to service. <br />
-
-The following is a brief retrospective of our firm highlighting our founding and significant achievements. So, without further ado, here is the Epstein story, so far.</p>
+  <section>
+    <img
+      src={aboutImages.roof}
+      alt="About us roofing"
+      class="h-40 w-screen object-cover bg-no-repeat"
+    />
+    <div class="my-8 px-16">
+      <h2 class="text-2xl font-bold text-yellow-500">About Us</h2>
+      <p class="text-base font-thin">
+        Welcome to Lifetime Construction, where craftsmanship meets your vision.
+        We are a seasoned team of construction professionals dedicated to
+        transforming your dreams into reality. With decades of experience in the
+        industry, we've built a solid reputation for delivering quality,
+        reliability, and innovation in every project we undertake.
+      </p>
     </div>
-    </section>
+  </section>
 
-    <!-- experience section -->
-    <section class="px-16 my-8">
-        <div class="grid  grid-cols-2">
-            <div class="md:w-1/2 mx-auto">
-                <p>Oswin's experience section..Oswin's experience section..OOswin's experience section..Oswin's experience section..Oswin's experience section..swin's experience section..</p>
-                </div>
-            <div class="md:w-1/2 mx-auto grid place-items-center">
-                <p><span class="text-yellow-700 italic text-3xl">10+</span> Leading the industry.</p>
-                </div>
-        </div>
-    </section>
-
-        <img src="/teamwork.jpg" alt="Teamwork" class="h-42 w-full object-cover bg-no-repeat" />
-
-<div class="bg-gray-800 h-52 grid place-items-center">
-    <Button classes="primary-button">primary-button</Button>
-    <Button classes="secondary-button">secondary-button</Button>
-    <Button classes="cta">CTA</Button>
+  <!-- experience section -->
+  <section class="px-16 my-8">
+    <div class="grid grid-cols-2">
+      <div class="md:w-1/2 mx-auto">
+        <ul>
+          {
+            experiences.map((experience) => (
+              <li class="list-disc">{experience}</li>
+            ))
+          }
+        </ul>
+        <p></p>
+      </div>
+      <div class="md:w-1/2 mx-auto grid place-items-center">
+        <p>
+          <span class="text-yellow-700 italic text-3xl">10+</span> Leading the industry.
+        </p>
+      </div>
     </div>
+  </section>
+
+  <img
+    src={aboutImages.teamwork}
+    alt="Teamwork"
+    class="h-42 w-full object-cover bg-no-repeat"
+  />
 </BaseLayout>
-
-

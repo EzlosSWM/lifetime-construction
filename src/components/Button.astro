@@ -1,33 +1,33 @@
 ---
-const { type = "button", theme} = Astro.props;
-
+const { type = "button", theme } = Astro.props;
 ---
+
 <button {type} class={theme}>
-        <slot />
+  <slot />
 </button>
 
 <style>
-    .primary-button {
-        @apply px-1 py-3 sm:w-24 md:w-40 shadow rounded bg-gray-800 delay-75 text-yellow-500;
+  .primary-button {
+    @apply px-1 py-3  shadow rounded bg-gray-800 delay-75 text-yellow-500;
 
-        &:hover {
-            @apply bg-gray-900 shadow-gray-700 shadow;
-        }
+    &:hover {
+      @apply bg-gray-900 shadow-gray-700 shadow;
     }
+  }
 
-    .secondary-button {
-        @apply px-1 py-3 sm:w-24 md:w-40 shadow-white shadow-sm rounded bg-transparent border border-gray-50 delay-75 text-gray-50;
+  .secondary-button {
+    @apply px-1 py-3  shadow-white shadow-sm rounded bg-transparent border border-gray-50 delay-75 text-gray-50;
 
-        &:hover {
-            @apply shadow-black shadow-sm border-none bg-gray-50 text-gray-900;
-        }
+    &:hover {
+      @apply shadow-black shadow-sm border-none bg-gray-50 text-gray-900;
     }
-    
-    .cta {
-        @apply px-1 py-3 sm:w-24 md:w-40 shadow rounded bg-yellow-500 delay-75 text-gray-200;
+  }
 
-        &:hover {
-            @apply bg-yellow-600 text-gray-50;
-        }
+  .cta {
+    @apply px-1 py-3 shadow rounded bg-yellow-400 delay-75 text-gray-800;
+
+    &:hover {
+      @apply bg-yellow-500 text-gray-50;
     }
+  }
 </style>
